@@ -1,0 +1,2149 @@
+const express = require('express');
+const path = require('path');
+const app = express();
+const PORT = 3004;
+
+// Serve static files from 'images' folder
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// Route for homepage
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Motorcycle Landing Page</title>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+      <style>
+        body {
+          margin: 0;
+          font-family: 'Inter', sans-serif;
+        }
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #fff;
+          color: #333;
+        }
+        .container {
+          position: relative;
+          min-height: 100vh;
+          overflow: hidden;
+        }
+          .container2 {
+          display: flex;
+          flex-wrap: wrap;
+          padding: 2rem;
+        }
+
+        .text-content2 {
+          flex: 1;
+          min-width: 400px;
+          max-width: 600px;
+          padding-right: 2rem;
+        }
+
+        .image-content {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 50%;
+          height: 100vh;
+          background: url('/images/bike.png') no-repeat center center;
+          background-size: cover;
+          clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 14% 100%);
+          z-index: -1;
+        }
+
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+        }
+
+        .logo {
+          font-size: 24px;
+          font-weight: 700;
+          background-color: #ccc;
+          padding: 10px 20px;
+        }
+
+        .nav-links a {
+          margin: 0 10px;
+          text-decoration: none;
+          color: #1a3c7c;
+          font-weight: 500;
+        }
+
+        .sign-in {
+          background: white;
+          padding: 8px 20px;
+          border-radius: 8px;
+          border: none;
+          font-weight: bold;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+        }
+
+        .hero-section {
+          display: flex;
+          min-height: 90vh;
+          align-items: center;
+        }
+
+        .text-content {
+          flex: 1;
+          padding: 60px;
+          max-width: 50%;
+        }
+
+        .text-content h1 {
+          font-size: 48px;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        .text-content p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 30px;
+          color: #333;
+        }
+
+        .form {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+
+        .form input {
+          padding: 12px;
+          width: 260px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+        }
+
+        .form button {
+          background-color: #1a3c7c;
+          color: white;
+          padding: 12px 24px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .note {
+          display: flex;
+          align-items: center;
+          color: #333;
+          font-size: 14px;
+        }
+
+        .checkmark {
+          color: #0056ff;
+          font-size: 18px;
+          margin-right: 6px;
+        }
+ 
+       .h13 {
+        width: 593px;
+        height: 29px;
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: -4%;
+        color: #0546D2;
+      } 
+        .h12 {
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  font-weight: 800;
+}
+  .p2 {
+  line-height: 1.6;
+}
+  .features {
+  margin-top: 2rem;
+}
+  .feature {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.feature img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  
+  margin-right: 1rem;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  background-color: #0055ff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.phone {
+  font-size: 1rem;
+}
+
+.image-section {
+  width: 629;
+height: 803;
+top: 60px;
+left: 666px;
+
+}
+
+.image-section img {
+  width: 100%;
+  max-width: 600px;
+ 
+}
+
+/*
+THIRD PAGE START CSS
+*/
+
+
+
+.container3 {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 20px;
+}
+
+.text-section3 {
+  flex: 1.2;
+}
+
+.image-section3 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section3 img {
+  width: 100%;
+    height: 601px;
+
+}
+
+.blue-title {
+  color: #2979ff;
+  font-weight: 600;
+}
+
+.main-title {
+  width: 435;
+height: 147;
+font-family: Roboto Condensed;
+font-weight: 700;
+font-size: 42px;
+line-height: 100%;
+letter-spacing: -2%;
+text-transform: uppercase;
+color: #222222;
+
+
+
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.feature3 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.feature3 img {
+  width: 10%;
+height: 14.468570709228516;
+
+}
+
+.footer-bar {
+  height: 10px;
+  background: linear-gradient(to right, #002776, #00703C);
+  margin-top: 30px;
+}
+
+/*
+FOURTH PAGE START CSS
+*/
+
+
+
+.hero-section4 {
+  background-image: url('../images/background.png'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  padding: 40px;
+  max-width: 800px;
+  margin-left: 50px;
+}
+
+.logo4 {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.h14 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.p4 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: white;
+}
+  .p42 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+/*
+FOURTH PAGE END CSS
+*/
+
+
+/*
+FIFTH PAGE START CSS
+*/
+
+
+
+.container5 {
+  padding: 40px 20px;
+}
+
+.h15 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.logo-grid img {
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  transition: transform 0.2s;
+}
+
+.logo-grid img:hover {
+  transform: scale(1.05);
+}
+
+
+/*
+FIFTH PAGE END CSS
+*/
+
+/*
+SIXTH PAGE START CSS
+*/
+
+.description6 {
+color: #0546D2;
+
+}
+
+.container6 {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.link {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.subtitle {
+  max-width: 600px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-content a {
+  margin-top: 10px;
+  display: inline-block;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+/*
+SIXTH PAGE END CSS
+*/
+
+/*
+SEVENTH PAGE START CSS
+*/
+
+
+
+.container7 {
+  background-image: url('../images/backgrounds.png'); 
+  height: 100vh;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo7 {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: #efefef;
+  color: black;
+  font-weight: bold;
+  padding: 10px 30px;
+  font-size: 24px;
+  border-radius: 4px;
+}
+
+.text7 {
+  font-size: 36px;
+  font-weight: bold;
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+
+
+/*
+SEVENTH PAGE END CSS
+*/
+
+/*
+EIGHT PAGE START CSS
+*/
+
+
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: red;
+  margin-left: 2px;
+}
+
+input,
+select,
+textarea {
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  resize: none;
+}
+
+textarea {
+  height: 120px;
+}
+
+.terms {
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+
+.terms a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #0045aa;
+  color: white;
+  padding: 14px 24px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: #002f7a;
+}
+
+
+
+
+/*
+EIGHT PAGE END CSS
+*/
+
+
+/*
+NINETH PAGE START CSS
+*/
+
+.container9 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+.left9 {
+  flex: 1;
+  max-width: 50%;
+}
+
+.subtitle9 {
+  color: #0070f3;
+  font-weight: 600;
+}
+
+.left9 h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #111;
+}
+
+.description9 {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.store-buttons img {
+  height: 50px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.right9 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.right9 img {
+  max-width: 300px;
+  height: auto;
+}
+
+/*
+NINETH PAGE END CSS
+*/
+
+/*
+TENTH PAGE START CSS
+*/
+
+.container10 {
+  display: flex;
+  flex-direction: row;
+  padding: 60px;
+  gap: 40px;
+}
+
+.left-section10 {
+  flex: 1;
+  max-width: 40%;
+}
+
+.label10 {
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.left-section10 h1 {
+  font-size: 32px;
+  color: #1a2b4c;
+  margin: 10px 0;
+}
+
+.left-section10 p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.cta-button10 {
+  display: inline-block;
+  background-color: #1a3e7b;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button10:hover {
+  background-color: #16468a;
+}
+
+.right-gallery10 {
+  flex: 2;
+}
+
+.grid10 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.grid10 img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/*
+TENTH PAGE END CSS
+*/
+
+
+/*
+ELEVENTH PAGE START CSS
+*/
+
+.main-container11 {
+  display: flex;
+  flex-direction: row;
+  padding: 40px 60px;
+  gap: 40px;
+  background: #f8f9fb;
+  align-items: flex-start;
+}
+
+.image-section11 img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.content-section11 {
+  max-width: 700px;
+}
+
+.small-label11 {
+  color: #0070f3;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #222;
+  line-height: 1.4;
+}
+
+.highlight11 {
+  color: #0070f3;
+}
+
+.description11 {
+  font-size: 16px;
+  color: #444;
+  margin: 16px 0;
+}
+
+.link-grid11 {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 30px;
+}
+
+.link-grid11 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.link-grid11 li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.cta-button11 {
+  display: inline-block;
+  background-color: #0070f3;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button11:hover {
+  background-color: #005bd1;
+}
+
+/*
+ELEVENTH PAGE END CSS
+*/
+
+/*
+TWELTH PAGE START CSS
+*/
+
+.blue-section12 {
+  background-color: #0056d2;
+  padding: 60px 40px;
+  color: white;
+}
+
+.header12 {
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.top-text12 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #b8d4ff;
+}
+
+.header12 h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.subtext12 {
+  font-size: 15px;
+  color: #dce8ff;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.button12 {
+  display: inline-block;
+  background-color: white;
+  color: #0056d2;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.button12:hover {
+  background-color: #e8e8e8;
+}
+
+.cards12 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card12 {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.icon12 {
+  font-size: 24px;
+  color: #0056d2;
+  margin-bottom: 12px;
+}
+
+.card12 p {
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.profile12 {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.profile12 img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile12 span {
+  font-weight: 500;
+}
+
+/*
+TWELTH PAGE END CSS
+*/
+
+/*
+THIRTEENTH PAGE START CSS
+*/
+
+.container13 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 60px;
+  gap: 40px;
+}
+
+.left13 {
+  flex: 1;
+  max-width: 550px;
+}
+
+.left13 h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.tab-buttons13 {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  max-width: 360px;
+}
+
+.tab-buttons13 button {
+  flex: 1;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.tab-buttons13 button:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.tab-buttons13 button.active {
+  background-color: #f3f3f3;
+}
+
+.description13 {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.link13 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.link13:hover {
+  text-decoration: underline;
+}
+
+.right13 {
+  flex: 1;
+}
+
+.right13 img {
+  width: 100%;
+  border-radius: 10px;
+  max-width: 450px;
+  object-fit: cover;
+}
+
+/*
+THIRTEENTH PAGE END CSS
+*/
+
+/*
+FOURTEENTH PAGE START CSS
+*/
+
+.section14 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 60px;
+  background: #f4f4f4;
+  flex-wrap: wrap;
+}
+
+.content14 {
+  flex: 1;
+  max-width: 600px;
+  padding-right: 40px;
+}
+
+.content14 h141 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.blue-text14 {
+  color: #0a57cf;
+}
+
+.p14 {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.button14 {
+  background-color: #0a57cf;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-bottom: 40px;
+}
+
+.button14:hover {
+  background-color: #084cb0;
+}
+
+.note-card14 {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-top: 4px solid #0a57cf;
+  border-bottom: 4px solid #0a57cf;
+  max-width: 480px;
+}
+
+.note-card14 .pin14 {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+}
+
+.note-card14 h14 {
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.note-card p141 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.note-card p142 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+  .note-card p143 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.image-box14 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-box14 img {
+  max-width: 100%;
+  border-radius: 4px;
+  width: 450px;
+  object-fit: cover;
+}
+
+/*
+FOURTEENTH PAGE END CSS
+*/
+
+
+/*
+FIFTEENTH PAGE START CSS
+*/
+
+.testimonial15 {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.text-center15 h151 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #0a0a0a;
+}
+
+.text-center15 p151 {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b4b4b;
+}
+
+.image-container15 {
+  position: relative;
+  display: inline-block;
+}
+
+.main-image15 {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.overlay-card15 {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-left: 2px solid #0a57cf;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.overlay-card15 h152 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
+.overlay-card15 p152 {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.overlay-card15 a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a57cf;
+  text-decoration: none;
+}
+
+.overlay-card15 a:hover {
+  text-decoration: underline;
+}
+
+.carousel-dots15 {
+  margin-top: 30px;
+}
+
+.dot15 {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active15 {
+  background-color: #0a57cf;
+}
+
+/*
+FIFTEENTH PAGE END CSS
+*/
+
+/*
+SIXTEENTH PAGE START CSS
+*/
+
+.faq-container16 {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.faq-container16 h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.faq-item16 {
+  border-top: 1px solid #ddd;
+  padding: 16px 0;
+}
+
+.faq-item16:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question16 {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.faq-answer16 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #444;
+  display: none;
+  line-height: 1.6;
+}
+
+.faq-item16.open .faq-answer16 {
+  display: block;
+}
+
+.faq-item16.open .icon16 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*
+SIXTEENTH PAGE END CSS
+*/
+
+/*
+SEVENTEENTH PAGE START CSS
+*/
+
+.center-section17 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.logo17 {
+  background-color: #eee;
+  font-weight: bold;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.h161 {
+  font-size: 24px;
+  font-weight: 800;
+  max-width: 600px;
+  margin: 0 auto 16px;
+}
+
+.p161 {
+  max-width: 500px;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.cta-button16 {
+  background color: #1959AC;
+
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.2s;
+}
+
+.cta-button16:hover {
+  background color: #1959AC;
+
+}
+
+/*
+SEVENTEENTH PAGE END CSS
+*/
+
+
+/*
+EIGHTEENTH PAGE START CSS
+*/
+
+.footer18 {
+  background-color: #0f121c;
+  color: #ffffff;
+  padding: 40px;
+}
+
+.footer-container18 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.footer-logo18 {
+  background-color: #e1e1e1;
+  color: #000;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 2px;
+}
+
+.footer-columns18 {
+  display: flex;
+  gap: 60px;
+}
+
+.column18 h4 {
+  font-size: 14px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.column18 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column18 ul li {
+  font-size: 13px;
+  color: #d3d3d3;
+  margin-bottom: 10px;
+}
+
+/*
+EIGHTEENTH PAGE END CSS
+*/
+
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="image-content"></div>
+
+        <header class="navbar">
+          <div class="logo">LOGO</div>
+          <nav class="nav-links">
+            <a href="#">Lorem Ipsum ▾</a>
+            <a href="#">Lorem Ipsum ▾</a>
+            <a href="#">Lorem Ipsum ▾</a>
+          </nav>
+          <button class="sign-in">Sign In</button>
+        </header>
+
+        <main class="hero-section">
+          <div class="text-content">
+            <h1>Lorem ipsum dolor <br />sit amet</h1>
+            <p>Lorem ipsum dolor sit amet consectetur. Enim netus cras congue quis elit sociis. Sed mi rhoncus id habitant.
+              In urna tellus nisi platea morbi libero imperdiet neque. Justo suspendisse tristique posuere quis eget viverra.
+              Nunc euismod ultrices etiam nulla habitasse.</p>
+            <div class="form">
+              <input type="text" placeholder="Enter your email" />
+              <button>Submit →</button>
+            </div>
+            <div class="note">
+              <span class="checkmark">✔</span> No credit card required!
+            </div>
+          </div>
+        </main>
+      </div>
+    
+      
+
+ 
+ <table>
+    <tr>
+        <td>
+        <section class="text-content2">    
+ <div class="h13">LOREM IPSUM DOLOR SIT
+ </div>
+ <div class="h12">LOREM IPSUM<br>DOLOR SIT AMET</div>
+<div class="p2">Lorem ipsum dolor sit amet consectetur. Amet sodales sociis facilisis donec dui. Mi porttitor ut aliquam mattis maecenas eget integer in nam. Non nisi iaculis at felis aliquet. Hendrerit tellus at .</div>
+      
+
+      <div class="features">
+        <div class="feature">
+          <img src="/images/img1.png" alt="Image 1" />
+          <p>Lorem ipsum dolor sit amet consectetur.<br/> Vestibulum ornare fermentum feugiat.</p>
+        </div>
+        <div class="feature">
+          <img src="/images/img2.png" alt="Image 2" />
+          <p>Lorem ipsum dolor sit amet consectetur.<br/> Dictum at ac tellus faucibus urna <br/> ullamcorper id dui cursus. Venenatis.</p>
+        </div>
+        <div class="feature">
+          <img src="/images/img3.png" alt="Image 3" />
+          <p>Lorem ipsum dolor sit amet consectetur.<br/> Vestibulum nisl morbi metus gravida eu <br/> facilisi enim. Ut diam auctor tortor tincidunt.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <button class="btn">Loerum Ipsum ➜</button>
+        <span class="phone">📞 123456789</span>
+      </div>
+    </section>
+
+
+        </td>
+        <td>
+        <section class="image-section">
+      <img src="/images/bikes.png" alt="Motorcycles" />
+</section>
+        </td>
+    </tr>
+</table>
+
+
+    
+
+
+<!--
+START THIRD PAGE
+//-->
+
+
+ <div class="container3">
+    <div class="text-section3">
+      <h5 class="blue-title">Lorem ipsum dolor sit amet</h5>
+      <h1 class="main-title">LOREM IPSUM DOLOR SIT<br/> AMET CONSECTETUR. EU <br/>ELIT.</h1>
+      <p class="description">
+        Lorem ipsum dolor sit amet consectetur. Mauris ullamcorper etiam leo eleifend <br/> condimentum in vitae faucibus. Amet massa malesuada sit pretium. Donec <br/> pharetra erat lacus suspendisse ornare.
+      </p>
+
+      <div class="feature3">
+        <img src="/images/icon.png" alt="icon">
+        <div>
+          <strong>Lorem ipsum dolor sit amet consectetur. Volutpat hac morbi egestas.</strong>
+          <p style="
+    font-size: 17px;
+">Lorem ipsum dolor sit amet consectetur. Eros egestas et arcu eu non <br> viverra. 
+        Risus quam mattis senectus vitae interdum odio ornare gravida <br> vestibulum. 
+        Donec turpis nulla felis mauris eu donec. Ipsum sit ut tortor.</p>
+        </div>
+      </div>
+
+      <div class="feature3">
+        <img src="/images/icon.png" alt="icon">
+        <div>
+          <strong>Lorem ipsum dolor sit amet consectetur. Volutpat hac morbi egestas.</strong>
+          <p style="
+    font-size: 17px;
+">Lorem ipsum dolor sit amet consectetur. Eros egestas et arcu eu non <br> viverra. 
+        Risus quam mattis senectus vitae interdum odio ornare gravida <br> vestibulum. 
+        Donec turpis nulla felis mauris eu donec. Ipsum sit ut tortor.</p>
+        </div>
+      </div>
+
+      <div class="feature3">
+        <img src="/images/icon.png" alt="icon">
+        <div>
+          <strong>Lorem ipsum dolor sit amet consectetur. Volutpat hac morbi egestas.</strong>
+          <p style="
+    font-size: 17px;
+">Lorem ipsum dolor sit amet consectetur. Eros egestas et arcu eu non <br> viverra. 
+        Risus quam mattis senectus vitae interdum odio ornare gravida <br> vestibulum. 
+        Donec turpis nulla felis mauris eu donec. Ipsum sit ut tortor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-section3">
+      <img src="/images/people.png" alt="Two men talking">
+    </div>
+  </div>
+
+  <div class="footer-bar"></div>
+
+
+<!--
+END THIRD PAGE
+//-->
+
+<!--
+START fourth PAGE
+//-->
+
+
+<div class="hero-section4">
+    <div class="overlay">
+      <div class="logo4">LOGO</div>
+      <div class="h14">LOREM IPSUM DOLOR SIT AMET CONSECTETUR. QUIS ADIPISCING PURUS EGESTAS ALIQUAM VIVERRA MI.</div>
+      <div class="p4">Lorem ipsum dolor sit amet consectetur. Mattis justo euismod volutpat vestibulum nisi at ac risus amet. Mi accumsan sagittis justo pellentesque id sed.</div>
+      <div class="p42">Lorem ipsum dolor sit amet consectetur. Volutpat in dictum nec condimentum ultrices non</div>
+      
+      
+    </div>
+  </div>
+
+
+  <!--
+END fourth PAGE
+//-->
+<!--
+
+
+START FIFTH PAGE
+//-->
+<div class="container5">
+<table>
+    <tr>
+    <div class="h15">LOREM IPSUM DOLOR SIT AMET<br> CONSECTETUR. COMMODO LEO AMET.</div>
+    </tr>
+    <tr class="logo-grid" style="margin:10">
+        <td> <img src="/images/hero.png" alt="Hero"/></td>
+        <td><img src="/images/honda.png" alt="Honda"/></td>
+        <td><img src="/images/bajaj.png" alt="Bajaj"/></td>
+        <td><img src="/images/tvs.png" alt="TVS"/></td>
+    </tr><br><br><br><br><br><br>
+    <tr class="logo-grid" style="margin:40px">
+        <td> <img src="/images/royal-enfield.png" alt="Royal Enfield"/></td>
+        <td><img src="/images/yamaha.png" alt="Yamaha"/></td>
+        <td><img src="/images/ktm.png" alt="KTM"/></td>
+        <td><img src="/images/ather.jpg" alt="Ather"/></td>
+    </tr><br><br><br><br><br><br>
+    <tr class="logo-grid">
+        <td><img src="/images/ola-electric.png" alt="Ola Electric"/></td>
+        <td><img src="/images/revolt.png" alt="Revolt"/></td>
+        <td><img src="/images/ultraviolette.jpg" alt="Ultraviolette"/></td>
+        <td><img src="/images/tork.jpg" alt="Tork"/></td>
+    </tr>
+</table>
+  </div>
+  
+
+
+
+<!--
+END FIFTH PAGE
+//-->
+
+<!--
+START SIXTH PAGE
+//-->
+
+<div class="container6">
+<p class="description6">
+        Lorem ipsum dolor sit amet
+      </p>
+    <h1 class="main-title">LOREM IPSUM DOLOR SIT</h1>
+    
+    <p class="subtitle">
+      Lorem ipsum dolor sit amet consectetur. Amet sodales sociis facilisis donec dui. Mi
+      porttitor ut aliquam mattis maecenas eget integer in nam. Non nisl iaculis et felis
+      aliquet. Hendrerit tellus at purus lectus.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <img src="/images/image1.png" alt="image1">
+        <div class="card-content">
+        <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Nunc gravida consequat faucibus cursus nisi...
+          </p>
+          
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <!-- Duplicate the card and update image and text -->
+      <div class="card">
+        <img src="/images/image2.png" alt="image2">
+        <div class="card-content">
+          <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur. Nunc gravida consequat faucibus cursus nisi...</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/image3.png" alt="image3">
+        <div class="card-content">
+          <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur. Nunc gravida consequat faucibus cursus nisi...</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/image4.png" alt="image4">
+        <div class="card-content">
+          <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur. Nunc gravida consequat faucibus cursus nisi...</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--
+END SIXTH PAGE
+//-->
+
+<!--
+START SEVENTH PAGE
+//-->
+
+<div class="container7">
+    <div class="logo7">LOGO</div>
+    <div class="text7">
+      DOLOR SIT AMET CONSECTETUR. QUIS<br> ADIPISCING PURUS EGESTAS ALIQUAM VIVERRA<br> MI.
+      DOLOR SIT AMET CONSECTETUR. QUIS<br> ADIPISCING
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!--
+END SEVENTH PAGE
+//-->
+
+
+<!--
+START EIGHT PAGE
+//-->
+
+<div class="container">
+    <h1>REQUEST A QUOTE</h1>
+    <form action="/submit" method="POST">
+      <div class="row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="text" name="phone" id="phone" />
+        </div>
+        <div class="field">
+          <label for="timeframe">Time Frame<span class="required">*</span></label>
+          <select id="timeframe" name="timeframe" required>
+            <option>Choose Time Frame</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="size">Size<span class="required">*</span></label>
+          <select id="size" name="size" required>
+            <option>Choose Size</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="quantity">Quantity<span class="required">*</span></label>
+          <select id="quantity" name="quantity" required>
+            <option>Choose Quantity</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="full-field">
+        <label for="description">Please Describe Your Project<span class="required">*</span></label>
+        <textarea id="description" name="description" required placeholder="Choose a project type"></textarea>
+      </div>
+
+      <p class="terms">
+        By submitting this form you agree to our
+        <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+      </p>
+
+      <div class="submit-button">
+        <button type="submit">Loerum Ipsum →</button>
+      </div>
+    </form>
+  </div>
+
+<!--
+END EIGHT PAGE
+//-->
+
+<!--
+START NINETH  PAGE
+//-->
+
+<div class="container9">
+    <div class="left9">
+      <p class="subtitle9">Lorem Ipsum</p>
+      <h1>Lorem Ipsum Dolor<br>Sit Amet</h1>
+      <p class="description9">
+        Lorem ipsum dolor sit amet consectetur. Vulputate amet aliquet morbi 
+        suspendisse convallis. Urna a urna lectus donec felis risus duis 
+        pellentesque. Pellentesque ultricies ipsum.
+      </p>
+      <div class="store-buttons">
+        <img src="/images/google-play-badge.png" alt="Google Play" />
+        <img src="/images/app-store-badge.png" alt="App Store" />
+      </div>
+    </div>
+    <div class="right9">
+      <img src="/images/phone.png" alt="Phone Image" />
+    </div>
+  </div>
+
+<!--
+END NINETH  PAGE
+//-->
+
+<!--
+START TENTH  PAGE
+//-->
+
+<div class="container10">
+    <div class="left-section10">
+      <p class="label10">NO LIMITS</p>
+      <h1>LOREM IPSUM DOLOR SIT AMET</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur. Nisl faucibus vitae porttitor
+        pharetra tempor quis arcu. Ipsum nullam.
+      </p>
+      <a href="#" class="cta-button10">Lorem Ipsum →</a>
+    </div>
+    <div class="right-gallery10">
+      <div class="grid10">
+        <img src="/images/imag1.png" alt="bike1">
+        <img src="/images/imag2.png" alt="bike2">
+        <img src="/images/imag3.png" alt="bike3">
+        <img src="/images/imag4.png" alt="bike4">
+        <img src="/images/imag5.png" alt="bike5">
+        <img src="/images/imag6.png" alt="bike6">
+        <img src="/images/imag7.png" alt="bike7">
+        <img src="/images/imag8.png" alt="bike7">
+      </div>
+    </div>
+  </div>
+
+<!--
+END TENTH  PAGE
+//-->
+
+
+<!--
+START ELEVENTH  PAGE
+//-->
+
+ <div class="main-container11">
+    <div class="image-section11">
+      <img src="/images/bikerss.png" alt="Bikers Image" />
+    </div>
+    <div class="content-section11">
+      <p class="small-label11">Lorem ipsum</p>
+      <h1><span class="highlight11">LOREM</span> IPSUM DOLOR SIT<br> AMET CONSECTETUR. ENIM<br> DONEC.</h1>
+      <p class="description11">Lorem ipsum dolor sit amet consectetur. Vel pellentesque odio enim<br> amet non.</p>
+
+      <div class="link-grid11">
+        <ul>
+          <li>Lorem Ipsum</li>
+          <li>Lorem Ipsum</li>
+          <li>Lorem Ipsum</li>
+        </ul>
+        <ul>
+          <li>Lorem Ipsum</li>
+          <li>Lorem Ipsum</li>
+          <li>Lorem Ipsum</li>
+        </ul>
+      </div>
+
+      <a href="#" class="cta-button11">Lorem Ipsum →</a>
+    </div>
+  </div>
+
+<!--
+END ELEVENTH  PAGE
+//-->
+
+
+<!--
+START TWELTH  PAGE
+//-->
+
+<section class="blue-section12">
+    <div class="header12">
+      <p class="top-text12">Join other Sun harvesters</p>
+      <h1>LOREM IPSUM DOLOR SIT AMET</h1>
+      <p class="subtext12">
+        Dui euismod iaculis libero, aliquet vitae et elementum porttitor. Eleifend mi tristique
+        condimentum congue fusce nunc, donec magnis commodo.
+      </p>
+      <a href="#" class="button12">Lorem Ipsum</a>
+    </div>
+
+    <div class="cards12">
+      <div class="card12">
+        <div class="icon12">⚡</div>
+        <p>Purus maecenas quis elit eu, aliquet. Tellus porttitor ut sollicitudin sit non fringilla. Quam nunc volutpat senectus neque eget amet pharetra, euismod. Tempus, nunc, molestie imperdiet curabitur commodo euismod.</p>
+        <div class="profile12">
+          <img src="/images/user1.jpg" alt="Jane Cooper">
+          <span>Jane Cooper</span>
+        </div>
+      </div>
+
+      <div class="card12">
+        <div class="icon12">⭐</div>
+        <p>Vehicula sit sit pharetra bibendum ut risus accumsan. Purus, in metus, enim, ipsum morbi euismod pellentesque. Mattis pharetra accumsan eget est mi enim, id. Sit quam tortor eu tellus non, in euismod integer.</p>
+        <div class="profile12">
+          <img src="/images/user2.jpg" alt="Ralph Edwards">
+          <span>Ralph Edwards</span>
+        </div>
+      </div>
+
+      <div class="card12">
+        <div class="icon12">🏰</div>
+        <p>Viverra lacus suspendisse elit, adipiscing orci, non turpis etiam sapien. Viverra blandit sem neque pretium. Duis enim semper fermentum consequat aenean libero. Blandit porta leo condimentum dolor, nisi, aliquet ante laoreet.</p>
+        <div class="profile12">
+          <img src="/images/user3.jpg" alt="Courtney Henry">
+          <span>Courtney Henry</span>
+        </div>
+      </div>
+
+      <div class="card12">
+        <div class="icon12">🔌</div>
+        <p>Hendrerit augue ut netus. Sit quis integer netus. Sit rhoncus magnis habitant. Egestas amet habitant tellus ornare. Hendrerit senectus. Mauris egestas vitae praesent neque.</p>
+        <div class="profile12">
+          <img src="/images/user4.jpg" alt="Cameron Williamson">
+          <span>Cameron Williamson</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--
+END TWELTH  PAGE
+//-->
+
+<!--
+START THIRTEENTH  PAGE
+//-->
+
+ <div class="container13">
+    <div class="left13">
+      <h1>LOREM IPSUM DOLOR SIT AMET</h1>
+
+      <div class="tab-buttons13">
+        <button class="active13">Research</button>
+        <button>Plan</button>
+        <button>Design</button>
+      </div>
+
+      <p class="description13">
+        Egestas fringilla aliquam leo, habitasse arcu varius lorem elit. Neque pellentesque
+        donec et tellus ac varius tortor, bibendum. Nulla felis ac turpis at amet. Purus
+        malesuada placerat arcu at enim elit in accumsan.
+      </p>
+
+      <a href="#" class="link13">Check tools →</a>
+    </div>
+
+    <div class="right13">
+      <img src="/images/handshake.png" alt="Handshake Image" />
+    </div>
+  </div>
+
+<!--
+END THIRTEENTH  PAGE
+//-->
+
+
+<!--
+START FOURTEENTH  PAGE
+//-->
+
+<section class="section14">
+    <div class="content14">
+    <h1 class="h141"><span class="blue-text14">LOREM IPSUM DOLOR SIT AMET CONSECTETUR.</span><br />
+        DIGNISSIM TELLUS.</h3>
+     
+      <p class="p14">
+        Lorem ipsum dolor sit amet consectetur. In malesuada morbi mi blandit laoreet urna sapien quam pulvinar.
+        Dolor aliquet est tortor tincidunt ultricies feugiat mauris. Aliquam platea turpis porta nisl felis. Massa
+        in facilisis semper libero eget eu quisque bibendum platea. Tortor fames.
+      </p>
+      <a href="#" class="button14">Lorem Ipsum →</a>
+
+      <div class="note-card14">
+        <img src="/images/pin.png" class="pin14" alt="pin" />
+        <h3 class="h14">Lorem ipsum dolor sit</h3>
+        <p class="p141">
+        Lorem ipsum dolor sit amet consectetur. Habitant vestibulum vitae amet habitasse semper.
+      </p>
+
+      <p class="p142">
+        Lorem ipsum dolor sit amet consectetur. Egestas congue mattis ut placerat vitae amet suspendisse fermentum velit. Nibh dolor nunc id tristique sit.
+      </p>
+
+      <p class="p143">
+       Lorem ipsum dolor sit amet consectetur. Hac netus consectetur amet quisque scelerisque facilisi. Ultrices lectus viverra pharetra commodo.
+      </p>
+        
+      </div>
+    </div>
+
+    <div class="image-box14">
+      <img src="/images/scooter.png" alt="Scooter Delivery" />
+    </div>
+  </section>
+
+<!--
+END FOURTEENTH  PAGE
+//-->
+
+<!--
+START FIFTEENTH  PAGE
+//-->
+
+<section class="testimonial15">
+    <div class="text-center15">
+    <h3 class="h151">LOREM IPSUM DOLOR SIT AMET</h3>
+    <p class="p151">
+       Aliquet sed nulla tincidunt pulvinar sed fames sit facilisis dictumst. Ornare faucibus quis velit fringilla
+        aliquam ultricies. Malesuada ut aliquam at ac est nisi, interdum etiam dignissim. Sed ut vestibulum eget
+        purus ornare. Risus elit et fringilla habitant ut facilisi.
+      </p>
+
+    </div>
+
+    <div class="image-container15">
+      <img src="P:\Assignment2\images\bikkers.png" alt="Bikers" class="main-image15" />
+
+      <div class="overlay-card15">
+      <h3 class="h152">Artist & Investor</h3>
+        <p class="p152">
+        Enim sagittis, sit porttitor morbi lobortis amet, libero adipiscing auctor. Malesuada tristique libero,
+          id netus tincidunt. Egestas ac arcu amet nisl quis est …
+      </p>
+        
+        <a href="#">Read Full Story →</a>
+      </div>
+    </div>
+
+    <div class="carousel-dots15">
+      <span class="dot active15"></span>
+      <span class="dot15"></span>
+      <span class="dot15"></span>
+      <span class="dot15"></span>
+    </div>
+  </section>
+
+<!--
+END FIFTEENTH  PAGE
+//-->
+
+<!--
+
+START SIXTEENTH  PAGE
+//-->
+
+ <div class="faq-container16">
+    <h1>FREQUENTLY ASKED QUESTIONS (FAQS)</h1>
+
+    <div class="faq-item open16">
+      <div class="faq-question16">
+        <strong>Lorem ipsum dolor sit amet consectetur?</strong>
+        <span class="icon16">−</span>
+      </div>
+      <p class="p16">
+        Enim sagittis, sit porttitor morbi lobortis amet, libero adipiscing auctor. Malesuada tristique libero,
+          id netus tincidunt. Egestas ac arcu amet nisl quis est …
+      </p>
+    </div>
+
+    <div class="faq-item16">
+      <div class="faq-question16">
+        <strong>Lorem ipsum dolor sit amet consectetur?</strong>
+        <span class="icon16">+</span>
+      </div>
+    </div>
+
+    <div class="faq-item16">
+      <div class="faq-question16">
+        <strong>Lorem ipsum dolor sit amet consectetur</strong>
+        <span class="icon">+</span>
+      </div>
+    </div>
+
+    <div class="faq-item16">
+      <div class="faq-question16">
+        <strong>Lorem ipsum dolor sit amet consectetur?</strong>
+        <span class="icon16">+</span>
+      </div>
+    </div>
+
+    <div class="faq-item16">
+      <div class="faq-question16">
+        <strong>Lorem ipsum dolor sit amet consectetur?</strong>
+        <span class="icon16">+</span>
+      </div>
+    </div>
+  </div>
+
+  
+
+<!--
+END SIXTEENTH  PAGE
+//-->
+
+<!--
+START SEVENTEENTH  PAGE
+//-->
+
+<section class="center-section17">
+    <div class="logo17">LOGO</div>
+    <h1 class="h161">LOREM IPSUM DOLOR SIT AMET<br> CONSECTETUR. DUI.</h1>
+    <P class="P161">Lorem ipsum dolor sit amet consectetur. Nisl faucibus vitae porttitor pharetra
+      tempor quis arcu. Ipsum nullam.</P>
+    
+    <a href="#" class="cta-button">Lorem Ipsum →</a>
+  </section>
+
+<!--
+END SEVENTEENTH  PAGE
+//-->
+
+
+<!--
+START EIGHTEENTH  PAGE
+//-->
+
+ <footer class="footer18">
+    <div class="footer-container18">
+      <div class="footer-logo18">LOGO</div>
+
+      <div class="footer-columns18">
+        <div class="column18">
+          <h4>Lorem Ipsum</h4>
+          <ul>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Lorem Ipsum</h4>
+          <ul>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Lorem Ipsum</h4>
+          <ul>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+            <li>Lorem Ipsum</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Lorem Ipsum</h4>
+          <ul>
+            <li>Lorem Ipsum</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!--
+END EIGHTEENTH  PAGE
+//-->
+
+
+
+
+
+
+
+    </body>
+    </html>
+  `);
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://127.0.0.1:${PORT}`);
+});
